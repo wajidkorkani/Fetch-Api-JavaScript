@@ -1,15 +1,22 @@
-// let container = document.querySelector(".container")
+let container = document.querySelector(".container")
 
 
 (async()=>{
-    const reqsponse = await fetch("https://api.freeapi.app/api/v1/public/randomproducts?page=8&limit=10&inc=category%252Cprice%252Cthumbnail%252Cimages%252Ctitle%252Cid&query=mens-watches");
+    const reqsponse = await fetch("https://fakestoreapi.com/products/1");
     if(!reqsponse.ok){
         console.log("Error")
     }else{
         let data = await reqsponse.json();
-        console.log(data);
-        
-        // data.forEach(element => {
-            
+        console.log(data); 
+        let h1 = document.createElement("h1")
+        h1.innerText = data.title
+        let span = document.createElement("span")
+        span.innerText = data.description
+        let box = document.createElement("div")
+        box.classList.add("box")
+        box.appendChild(h1)
+        box.appendChild(document.createElement("br"))
+        box.appendChild(span)
+        container.append(box)
     };
 })()
