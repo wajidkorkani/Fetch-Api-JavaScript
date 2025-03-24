@@ -1,5 +1,3 @@
-let container = document.querySelector(".container")
-
 
 (async()=>{
     const reqsponse = await fetch("https://fakestoreapi.com/products/1");
@@ -8,6 +6,7 @@ let container = document.querySelector(".container")
     }else{
         let data = await reqsponse.json();
         console.log(data); 
+        let container = document.querySelector(".container")
         let h1 = document.createElement("h1")
         h1.innerText = data.title
         let span = document.createElement("span")
